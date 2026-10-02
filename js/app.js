@@ -72,7 +72,7 @@ function createGrid() {
   reelGrid.innerHTML = "";
 
   for (let reelIndex = 0; reelIndex < REEL_COUNT; reelIndex++) {
-    const reel = document.createdElement("div");
+    const reel = document.createElement("div");
     reel.classList.add("reel");
     reel.dataset.reel = reelIndex;
 
