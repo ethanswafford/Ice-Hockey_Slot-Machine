@@ -1,48 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HAT TRICK SLOTS</title>
-    <meta name="HAT TRICK SLOTS" content="Casino Game">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hat Trick Slots</title>
+
+    <meta name="description" content="Hat Trick Slots - a hockey themed video slot game">
+
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <div class="reels">
-        <div class="reel" id="reel1">
-            <div class="symbol" id="symbol1"></div>
-            <div class="symbol" id="symbol2"></div>
-            <div class="symbol" id="symbol3"></div>
-        </div>
-        <div class="reel" id="reel2">
-            <div class="symbol" id="symbol4"></div>
-            <div class="symbol" id="symbol5"></div>
-            <div class="symbol" id="symbol6"></div>
-        </div>
-        <div class="reel" id="reel3">
-            <div class="symbol" id="symbol7"></div>
-            <div class="symbol" id="symbol8"></div>
-            <div class="symbol" id="symbol9"></div>
-        </div>
-        <div class="controls">
-            <button id="bet-decrease">-</button>
-            <button id="spin">SPIN</button>
-            <button id="bet-increase">+</button>
-        </div>
-    </div>
 
-    <div class="slot-machine">
-        <div class="HUD">
+    <main class="game">
+
+        <header class="game-header">
             <h1>HAT TRICK SLOTS</h1>
-            <p class="balance">Balance: $<span id="balance">1000</span></p>
-            <p class="bet">Bet: $<span id="bet">10</span></p>
-        </div>
-    </div>
 
-    <script src="/js/app.js" async defer></script>
+            <div id="game-message" class="game-message">
+                WELCOME TO THE ICE
+            </div>
+        </header>
+
+
+        <section class="slot-screen">
+
+            <div id="reel-grid" class="reel-grid" aria-label="Hat Trick Slots reels">
+            </div>
+
+        </section>
+
+
+        <section class="control-panel">
+
+            <div class="meter">
+                <span class="meter-label">CREDIT</span>
+                <strong id="balance">1000</strong>
+            </div>
+
+
+            <div class="bet-controls">
+
+                <button id="bet-decrease" class="control-button" type="button" aria-label="Decrease bet">
+                    −
+                </button>
+
+                <div class="meter">
+                    <span class="meter-label">BET</span>
+                    <strong id="bet">10</strong>
+                </div>
+
+                <button id="bet-increase" class="control-button" type="button" aria-label="Increase bet">
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="meter">
+                <span class="meter-label">WIN</span>
+                <strong id="win">0</strong>
+            </div>
+
+
+            <button id="spin" class="spin-button" type="button">
+                SPIN
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="./js/app.js"></script>
+
 </body>
 
 </html>
