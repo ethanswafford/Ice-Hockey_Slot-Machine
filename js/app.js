@@ -37,6 +37,11 @@ const symbols = [
   {
     name: "skate",
     display: "⛸️",
+    payouts: {
+      3: 2,
+      4: 4,
+      5: 8,
+    },
   },
   {
     name: "glove",
