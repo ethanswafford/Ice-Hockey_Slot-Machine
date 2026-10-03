@@ -28,6 +28,11 @@ const symbols = [
   {
     name: "stick",
     display: "🏒",
+    payouts: {
+      3: 1,
+      4: 3,
+      5: 6,
+    },
   },
   {
     name: "skate",
