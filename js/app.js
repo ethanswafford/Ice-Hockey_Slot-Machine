@@ -228,6 +228,30 @@ function evaluateWins() {
 }
 
 /*====================================================
+  Highlight Winning Symbols
+=====================================================*/
+
+function clearWinHighlights() {
+  document.querySelectorAll(".symbol").forEach((symbolElement) => {
+    symbolElement.classList.remove("winning");
+  });
+}
+
+function highlightWins(wins) {
+  wins.forEach((win) => {
+    for (let reelIndex = 0; reelIndex < win.matchingReels; reelIndex++) {
+      const winningSymbols = document.querySelectorAll(
+        `.symbol[data-reel="${reelIndex}"][data-symbol="${win.symbol}"]`,
+      );
+
+      winningSymbols.forEach((symbolElement) => {
+        symbolElement.classList.add("winning");
+      });
+    }
+  });
+}
+
+/*====================================================
   Update HUD
 =====================================================*/
 
