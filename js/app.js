@@ -132,13 +132,25 @@ function getRandomSymbol() {
 ===================================================*/
 
 function randomizeReels() {
-  const symbolElements = document.querySelectorAll(".symbol");
+  gameState.reels = [];
 
-  symbolElements.forEach((symbolElement) => {
-    const symbol = getRandomSymbol();
+  const reels = document.querySelectorAll(".reel");
 
-    symbolElement.textContent = symbol.display;
-    symbolElement.dataset.symbol = symbol.name;
+  reels.forEach((reelElement, reelIndex) => {
+    const reelResult = [];
+
+    const symbolElements = reelElement.querySelectorAll(".symbol");
+
+    symbolElements.forEach((symbolElement) => {
+      const symbol = getRandomSymbol();
+
+      symbolElement.textContent = symbol.display;
+      symbolElement.dataset.symbol = symbol.name;
+
+      reelResult.push(symbol.name);
+    });
+
+    gameState.reels.push(reelResult);
   });
 }
 
