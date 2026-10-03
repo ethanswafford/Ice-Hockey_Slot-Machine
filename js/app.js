@@ -310,27 +310,30 @@ function spin() {
 
   if (gameState.balance < gameState.bet) {
     gameMessage.textContent = "NOT ENOUGH CREDITS";
-
     return;
   }
-
   gameState.spinning = true;
-
+  clearWinHighlights();
   gameState.win = 0;
-
   gameState.balance -= gameState.bet;
-
   gameMessage.textContent = "SPINNING...";
-
   updateDisplay();
-
   randomizeReels();
 
-  gameMessage.textContent = "NO WIN";
+  const result = evaluateWins();
+  gameState.win = result.totalWin;
 
+  if (result.totalWin > 0) {
+    gameState.balance += result.totalWin;
+    highlightWins(result.wins);
+    gameMessage.textContent = `GOAL! +${result.totalWin} CREDITS`;
+  } else {
+    gameMessage.textContent = "NO WIN";
+  }
   gameState.spinning = false;
-
   updateDisplay();
+  console.log("Spin Result:", gameState.reels, result);
+  console.log("WINNINGS: ", result.wins);
 }
 
 /*=================================================
