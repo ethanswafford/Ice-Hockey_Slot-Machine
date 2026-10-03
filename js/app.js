@@ -155,6 +155,79 @@ function randomizeReels() {
 }
 
 /*====================================================
+  Win Evaluation
+=====================================================*/
+
+function evaluateWins() {
+  const wins = [];
+
+  let totalWin = 0;
+
+  const betMultiplier = gameState.bet / MIN_BET;
+
+  symbols.forEach((symbol) => {
+    const counts = [];
+
+    // Count this symbol on each reel
+    for (let reelIndex = 0; reelIndex < REEL_COUNT; reelIndex++) {
+      const reel = gameState.reels[reelIndex];
+
+      const count = reel.filter(
+        (symbolName) => symbolName === symbol.name,
+      ).length;
+
+      counts.push(count);
+    }
+
+    // Determine how many consecutive reels
+    // contain this symbol from left to right
+    let matchingReels = 0;
+
+    for (let reelIndex = 0; reelIndex < counts.length; reelIndex++) {
+      if (counts[reelIndex] > 0) {
+        matchingReels++;
+      } else {
+        break;
+      }
+    }
+
+    // Need at least 3 consecutive reels
+    if (matchingReels < 3) {
+      return;
+    }
+
+    // Calculate number of winning ways
+    let ways = 1;
+
+    for (let reelIndex = 0; reelIndex < matchingReels; reelIndex++) {
+      ways *= counts[reelIndex];
+    }
+
+    const payout = symbol.payouts[matchingReels];
+
+    if (!payout) {
+      return;
+    }
+
+    const winAmount = Math.round(payout * ways * betMultiplier);
+
+    totalWin += winAmount;
+
+    wins.push({
+      symbol: symbol.name,
+      matchingReels,
+      ways,
+      winAmount,
+    });
+  });
+
+  return {
+    totalWin,
+    wins,
+  };
+}
+
+/*====================================================
   Update HUD
 =====================================================*/
 
