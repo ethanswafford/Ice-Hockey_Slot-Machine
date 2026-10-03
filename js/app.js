@@ -64,6 +64,11 @@ const symbols = [
   {
     name: "trophy",
     display: "🏆",
+    payouts: {
+      3: 5,
+      4: 15,
+      5: 40,
+    },
   },
 ];
 
