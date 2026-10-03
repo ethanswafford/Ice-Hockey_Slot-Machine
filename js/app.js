@@ -19,6 +19,11 @@ const symbols = [
   {
     name: "puck",
     display: "⚫",
+    payouts: {
+      3: 1,
+      4: 2,
+      5: 5,
+    },
   },
   {
     name: "stick",
