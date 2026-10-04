@@ -13,3 +13,5 @@ may include compressed audio files like WAV and mp3.
 -Will include features like bonus "shoot-out" and "over-time" rounds.
 
 -Also plan to develop reel animations and visual appeal through detail.
+
+-May have to implement some kind of Node or more complex javascript libraries eventually.
