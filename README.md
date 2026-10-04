@@ -4,4 +4,6 @@
 -Developmental and testing model is accessible at: https://ethanswafford.github.io/Ice-Hockey_Slot-Machine/
 
 -Developing psuedo RNG and probability features in vanilla JavaScript.
--Eventually will need to provide some mechanism for sound effects and ambient music
+
+-Eventually will need to provide some mechanism for sound effects and ambient music,
+may include compressed audio files like WAV and mp3.
