@@ -9,3 +9,5 @@
 
 -Eventually will need to provide some mechanism for sound effects and ambient music,
 may include compressed audio files like WAV and mp3.
+
+-Will include features like bonus "shoot-out" and "over-time" rounds.
